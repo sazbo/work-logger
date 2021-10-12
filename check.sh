@@ -1,7 +1,7 @@
 #!/bin/bash
 check() {
     command="$1"
-    actual="$(eval "$command" 2> /dev/null)"
+    actual="$(eval "$command")"
     expected="$2"
     if [[ "$actual" -eq "$expected" ]]
     then
