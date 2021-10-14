@@ -2,9 +2,7 @@
 #awk -F "\"*,\"*" '{x+=$3}END{print x}' <(tail -n +1 logs/alice/january.csv)
 if [ $# -eq 0 ];
 then
-    var=$(awk -F"," '{x+=$3}END{print x}' ./logs/alice/january.csv)
+    . shared.sh "alice" "january"
 else
-    var=$(awk -F"," '{x+=$3}END{print x}' ./logs/alice/"$1".csv)
+    . shared.sh "alice" "$1"
 fi
-
-echo "$var"

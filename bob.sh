@@ -4,9 +4,7 @@
 # shellcheck disable=SC1068
 if [ $# -eq 0 ];
 then
-    var=$(awk -F"," '{x+=$3}END{print x}' ./logs/bob/january.csv)
+    . shared.sh "bob" "january"
 else
-    var=$(awk -F"," '{x+=$3}END{print x}' ./logs/bob/"$1".csv)
+    . shared.sh "bob" "$1"
 fi
-
-echo "$var"
